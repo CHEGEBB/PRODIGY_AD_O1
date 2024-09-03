@@ -1,6 +1,9 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { FontAwesome } from '@expo/vector-icons';
+
 
 const TabBar = ({ state, descriptors, navigation }) => {
   return (
@@ -37,21 +40,52 @@ const TabBar = ({ state, descriptors, navigation }) => {
           });
         };
 
-        // Define your icons here based on the route name or label
-        const iconName = (() => {
-          switch (label) {
-            case "General":
-              return "calculator"; 
-            case "Advanced":
-              return "function"; 
-            case "Financial":
-              return "wallet"; 
-            case "Scientific":
-              return "infocirlceo"; 
-            default:
-              return "appstore1"; 
-          }
-        })();
+        const getIcon = (label, isFocused) => {
+  switch (label) {
+    case "General":
+      return (
+        <MaterialCommunityIcons 
+          name="function-variant" 
+          size={24} 
+          color={isFocused ? '#109DFF' : '#fff'} 
+        />
+      );
+    case "Advance":
+      return (
+        <FontAwesome
+         name="cube"
+         size={24} 
+        color={isFocused ? '#109DFF' : '#fff'
+        } 
+ />
+
+      )
+    case "Financial":
+      return (
+        <FontAwesome 
+          name="dollar" 
+          size={24} 
+          color={isFocused ? '#109DFF' : '#fff'} 
+        />
+      );
+    case "Scientific":
+      return (
+        <MaterialCommunityIcons
+         name="function-variant"
+         size={24}
+         color={isFocused ? '#109DFF' : '#fff'}   />
+      );
+    default:
+      return (
+        <AntDesign 
+          name="appstore1" 
+          size={24} 
+          color={isFocused ? '#109DFF' : '#fff'} 
+        />
+      );
+  }
+};
+
 
         return (
           <TouchableOpacity
@@ -65,11 +99,7 @@ const TabBar = ({ state, descriptors, navigation }) => {
             onLongPress={onLongPress}
           >
             <View style={styles.labelContainer}>
-              <AntDesign 
-                name={iconName} 
-                size={24} 
-                color={isFocused ? '#109DFF' : '#fff'} 
-              />
+            {getIcon(label, isFocused)}
               <Text style={isFocused ? styles.focusedText : styles.unfocusedText}>
                 {label}
               </Text>
