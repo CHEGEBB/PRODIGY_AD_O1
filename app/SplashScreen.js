@@ -1,4 +1,4 @@
-import { View, Text, Image, SafeAreaView } from 'react-native';
+import { View, Text, Image, SafeAreaView, StyleSheet } from 'react-native';
 import React from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import { styled } from 'nativewind';
@@ -24,15 +24,42 @@ const SplashScreen = () => {
           style={{ width: 50, height: 50 }}
         />
       </View>
-      <View className="mt-4">
+      <View>
+      <View className="mt-0">
       <Text className="mt-2 text-4xl font-black tracking-wide text-white">
         Caltrix
         </Text>
+      </View>
+      <View>
+        <Text style={styles.ProContainer}>
+          Pro
+        </Text>
+      </View>
       </View>
         </View>
       </SafeAreaView>
     </StyledLinearGradient>
   );
 }
+
+const styles= StyleSheet.create({
+  ProContainer: {
+    fontSize: 18,
+    fontWeight: '700',
+    textTransform: 'uppercase',
+    backgroundColor:'#000',
+    color: '#fff',
+    padding: 5,
+    width: 50,
+    borderRadius: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    position: 'absolute',
+    top: -50,
+    right: -45,
+    zIndex: 100,
+    overflow: 'hidden',
+  },
+})
 
 export default SplashScreen;
