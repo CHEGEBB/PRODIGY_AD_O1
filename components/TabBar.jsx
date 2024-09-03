@@ -47,9 +47,9 @@ const TabBar = ({ state, descriptors, navigation }) => {
             case "Financial":
               return "wallet"; 
             case "Scientific":
-              return "infocirlceo"; // AntDesign icon name for scientific
+              return "infocirlceo"; 
             default:
-              return "appstore1"; // Default icon
+              return "appstore1"; 
           }
         })();
 
