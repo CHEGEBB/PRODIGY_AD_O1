@@ -10,6 +10,7 @@ import Basic from './general';
 import Advance from './advance';
 import  Financial from './financial'
 import  Scientific from './scientific'
+import TabBar from '../components/TabBar';
 
 const StyledLinearGradient = styled(LinearGradient);
 
@@ -20,8 +21,6 @@ const App = () => {
     const timer = setTimeout(() => {
       setIsShowSplashScreen(false);
     }, 4000);
-
-    // Clear the timer if the component is unmounted before the timeout
     return () => clearTimeout(timer);
   }, []);
 
@@ -39,19 +38,20 @@ const App = () => {
           <Tabs
             screenOptions={{
               tabBarStyle: {
-                backgroundColor: '#1E1E1E', // Tab bar background color
-                borderTopWidth: 0, // Remove top border
+                backgroundColor: '#1E1E1E',
+                borderTopWidth: 0,
               },
-              tabBarActiveTintColor: 'white', // Active tab icon color
+              tabBarActiveTintColor: 'blue', // Active tab icon color
               tabBarInactiveTintColor: 'gray', // Inactive tab icon color
               tabBarLabelStyle: {
-                fontSize: 14, // Tab label font size
+                fontSize: 14, 
                 fontWeight: 'bold', // Tab label font weight
               },
               tabBarIconStyle: {
                 marginTop: 5, // Adjust icon margin
               },
             }}
+            tabBar={props=><TabBar{...props}/>}
           >
             <Tabs.Screen
               name="general"
