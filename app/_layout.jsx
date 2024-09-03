@@ -14,7 +14,7 @@ const index = () => {
     useEffect(() => {
         setTimeout(() =>{
             setisShowSplashScreen(false)
-        }, 2000)
+        }, 4000)
     }, [])
   return (
     <StyledLinearGradient
@@ -24,7 +24,7 @@ const index = () => {
     end={{ x: 1, y: 1 }}
   >
     <SafeAreaView className="flex-1 min-h-screen bg-slate-500 ">
-    {  isShowSplashScreen ?  <SplashScreen/> :  <SplashScreen/>
+    {  isShowSplashScreen ?  <SplashScreen/> :  <Basic/>
     }
     </SafeAreaView>
     <StatusBar
