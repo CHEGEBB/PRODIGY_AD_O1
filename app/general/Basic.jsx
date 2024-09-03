@@ -1,12 +1,25 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { SafeAreaView, Text, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 
-const Basic = () => {
+export default function App() {
   return (
-    <View>
-      <Text>Basic</Text>
-    </View>
-  )
+      <SafeAreaView className="items-center justify-center flex-1 bg-[#0F172A]">
+      <View className="flex bg-slate-600">
+        <Text className="text-xl font-bold text-white">
+          Hello, Linear Gradient!
+        </Text>
+        </View>
+        <StatusBar
+        style="light"
+        backgroundColor="#0F172A"
+        barStyle="dark-content"
+        translucent={false}
+        showHideTransition="slide"
+        animated={true}
+        hideWhenStopped={true}
+        hidden={false}
+      />
+      </SafeAreaView>
+  );
 }
-
-export default Basic
