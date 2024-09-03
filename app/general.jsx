@@ -6,7 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.safeAreaView}>
+    <SafeAreaView style={styles.safeAreaView} className="min-h-screen">
       <View style={styles.bottomBar}></View>
       {/* Container will take 2/3 of the screen height */}
       <View style={styles.container}>

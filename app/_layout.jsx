@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
+import { SafeAreaView, StyleSheet,View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
 import { styled } from 'nativewind';
@@ -25,18 +25,13 @@ const App = () => {
   }, []);
 
   return (
-    <StyledLinearGradient
-      className="flex-1"
-      colors={['#4c669f', '#3b5998', '#192f6a']}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-    >
-      <SafeAreaView style={styles.safeAreaView}>
+      <View style={styles.safeAreaView}>
         {isShowSplashScreen ? (
           <SplashScreen />
         ) : (
           <Tabs
             screenOptions={{
+              headerShown: false,
               tabBarStyle: {
                 backgroundColor: '#1E1E1E',
                 borderTopWidth: 0,
@@ -92,15 +87,14 @@ const App = () => {
           barStyle="light-content"
           translucent={false}
         />
-      </SafeAreaView>
-    </StyledLinearGradient>
-  );
+      </View>
+        );
 };
 
 const styles = StyleSheet.create({
   safeAreaView: {
     flex: 1,
-  },
+  }
 });
 
 export default App;

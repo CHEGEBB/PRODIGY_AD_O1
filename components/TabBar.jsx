@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
   },
   focusedTabBar: {
     backgroundColor: "#1E293B",
-    width: 60,
+    width: 70,
     height: 125,
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: "#109DFF",
     position: "absolute",
-    top: 20,
+    top: 50,
     zIndex: 4,
   },
   focusedText: {
@@ -165,6 +165,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
+    width:150
   },
 });
 
