@@ -144,6 +144,16 @@ const styles = StyleSheet.create({
   },
   defaultButton: {
     backgroundColor: '#2D3748',
+    color:"#F7FAFC",
+    borderRadius: 20,
+    shadowColor: '#000',
+    shadowOpacity: 0.5,
+    shadowRadius: 10,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    padding: 10,
   },
   operatorButton: {
     backgroundColor: '#005DB2',
@@ -156,14 +166,14 @@ const styles = StyleSheet.create({
   },
   clearButton: {
     backgroundColor: '#B2DAFF',
-    width:62,
-    height:62
+    width:60,
+    height:60
   },
   specialButton: {
     backgroundColor: '#93C5FD',
     color:"#1E1E1E",
     borderRadius: 30,
-    width:67,
+    width:65,
 
   },
   zeroButton: {
