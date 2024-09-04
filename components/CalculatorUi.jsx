@@ -59,16 +59,18 @@ const CalculatorUi = ({ result,expression, setExpression, setResult }) => {
     } else if (['e', '√', '(', ')'].includes(button)) {
       buttonStyle = [buttonStyle, styles.specialButton];
       textStyle = [textStyle, styles.specialButtonText];
-    } else {
+    } 
+    else {
       buttonStyle = [buttonStyle, styles.defaultButton];
       textStyle = [textStyle, styles.defaultButtonText];
     }
 
-    if (button === '0') {
+    if ( ['0', '.'].includes(button)) {
       buttonStyle = [buttonStyle, styles.zeroButton];
-    }
+      textStyle = [textStyle, styles.zeroButtonText];
+    } 
 
-    return (
+return (
       <TouchableOpacity 
         key={index} 
         style={buttonStyle}
@@ -99,7 +101,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     width:"100%",
     padding: 10,
-    flex:1
+    flex: 1,
   },
   displayContainer: {
     backgroundColor: '#0F172A',
@@ -107,19 +109,26 @@ const styles = StyleSheet.create({
     
   },
   buttonContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    marginTop:-110,
+    flexDirection: 'column',
+    gap: 0,
     padding: 10,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingHorizontal: 10,
+    marginLeft:1,
     flex:2
+
   },
   buttonRow: {
     flexDirection: 'row',
+    justifyContent:'flex-start',
+    gap:0.1,
+    width:"100%",
   },
   button: {
-    width: 65,
-    height: 55,
+    width: 66,
+    height: 52,
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
@@ -137,26 +146,36 @@ const styles = StyleSheet.create({
     backgroundColor: '#2D3748',
   },
   operatorButton: {
-    backgroundColor: '#4A5568',
+    backgroundColor: '#005DB2',
   },
   equalButton: {
     backgroundColor: '#3182CE',
-    height: 70,
+    height: 60,
     alignItems: 'center',
     justifyContent: 'center',
   },
   clearButton: {
-    backgroundColor: '#E2E8F0',
+    backgroundColor: '#B2DAFF',
+    width:62,
+    height:62
   },
   specialButton: {
     backgroundColor: '#93C5FD',
     color:"#1E1E1E",
     borderRadius: 30,
+    width:67,
 
   },
   zeroButton: {
-    width: 112,
-    height: 55,
+    width: 120,
+    height: 50,
+    backgroundColor: '#1991FF',
+    borderRadius: 20,
+    marginTop:3,
+    shadowColor: '#000',
+    shadowOpacity: 0.5,
+    shadowRadius: 10,
+
   },
   text: {
     fontSize: 20,
@@ -177,7 +196,6 @@ const styles = StyleSheet.create({
   specialButtonText: {
     color: '#1E1E1E',
   },
-
 });
 
 export default CalculatorUi;
