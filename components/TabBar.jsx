@@ -45,7 +45,7 @@ const TabBar = ({ state, descriptors, navigation }) => {
     case "General":
       return (
         <MaterialCommunityIcons 
-          name="function-variant" 
+          name="calculator" 
           size={24} 
           color={isFocused ? '#109DFF' : '#fff'} 
         />
@@ -71,7 +71,7 @@ const TabBar = ({ state, descriptors, navigation }) => {
     case "Scientific":
       return (
         <MaterialCommunityIcons
-         name="function-variant"
+         name="flask"
          size={24}
          color={isFocused ? '#109DFF' : '#fff'}   />
       );

@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, StyleSheet,View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import { LinearGradient } from 'expo-linear-gradient';
-import { styled } from 'nativewind';
+import { Tabs } from 'expo-router';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import SplashScreen from '../components/SplashScreen';
-import { Tabs } from 'expo-router';
-import Basic from './general';
-import Advance from './advance';
-import  Financial from './financial'
-import  Scientific from './scientific'
 import TabBar from '../components/TabBar';
-
-const StyledLinearGradient = styled(LinearGradient);
+import Basic from './index';
+import Advance from './advance';
+import Financial from './financial';
+import Scientific from './scientific';
 
 const App = () => {
   const [isShowSplashScreen, setIsShowSplashScreen] = useState(true);
@@ -24,77 +20,74 @@ const App = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  if (isShowSplashScreen) {
+    return <SplashScreen />;
+  }
+
   return (
-      <View style={styles.safeAreaView}>
-        {isShowSplashScreen ? (
-          <SplashScreen  />
-        ) : (
-          <Tabs
-            screenOptions={{
-              headerShown: false,
-              tabBarStyle: {
-                backgroundColor: '#1E1E1E',
-                borderTopWidth: 0,
-              },
-              tabBarActiveTintColor: 'blue', 
-              tabBarInactiveTintColor: 'gray', 
-              tabBarLabelStyle: {
-                fontSize: 14, 
-                fontWeight: 'bold', 
-              },
-              tabBarIconStyle: {
-                marginTop: 5, 
-              },
-            }}
-            tabBar={props=><TabBar{...props}/>}
-          >
-            <Tabs.Screen
-              name="general"
-              options={{
-                tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />,
-                component: Basic, 
-              }}
-            />
-            <Tabs.Screen
-              name="advance"
-              options={{
-                title: 'Advance',
-                tabBarIcon: ({ color }) => <FontAwesome size={28} name="cog" color={color} />,
-                component: Advance,
-              }}
-            />
-              <Tabs.Screen
-              name="financial"
-              options={{
-                title: 'Financial',
-                tabBarIcon: ({ color }) => <FontAwesome size={28} name="cog" color={color} />,
-                component: Financial,
-              }}
-            />
-              <Tabs.Screen
-              name="scientific"
-              options={{
-                title: 'Scientific',
-                tabBarIcon: ({ color }) => <FontAwesome size={28} name="cog" color={color} />,
-                component:Scientific,
-              }}
-            />
-          </Tabs>
-        )}
-        <StatusBar
-          style="light"
-          backgroundColor="#4c669f"
-          barStyle="light-content"
-          translucent={false}
+    <View style={styles.container}>
+      <Tabs
+        screenOptions={{
+          headerShown: false,
+          tabBarStyle: {
+            backgroundColor: '#1E1E1E',
+            borderTopWidth: 0,
+          },
+          tabBarActiveTintColor: 'blue',
+          tabBarInactiveTintColor: 'gray',
+          tabBarLabelStyle: {
+            fontSize: 14,
+            fontWeight: 'bold',
+          },
+          tabBarIconStyle: {
+            marginTop: 5,
+          },
+        }}
+        tabBar={(props) => <TabBar {...props} />}
+      >
+        <Tabs.Screen
+          name="index"
+          options={{
+            title: 'General',
+            tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />,
+          }}
         />
-      </View>
-        );
+        <Tabs.Screen
+          name="advance"
+          options={{
+            title: 'Advance',
+            tabBarIcon: ({ color }) => <FontAwesome size={28} name="cog" color={color} />,
+          }}
+        />
+        <Tabs.Screen
+          name="financial"
+          options={{
+            title: 'Financial',
+            tabBarIcon: ({ color }) => <FontAwesome size={28} name="dollar" color={color} />,
+          }}
+        />
+        <Tabs.Screen
+          name="scientific"
+          options={{
+            title: 'Scientific',
+            tabBarIcon: ({ color }) => <FontAwesome size={28} name="flask" color={color} />,
+          }}
+        />
+      </Tabs>
+      <StatusBar
+        style="light"
+        backgroundColor="#4c669f"
+        barStyle="light-content"
+        translucent={false}
+      />
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
-  safeAreaView: {
+  container: {
     flex: 1,
-  }
+  },
 });
 
 export default App;
