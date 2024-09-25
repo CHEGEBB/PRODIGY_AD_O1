@@ -60,6 +60,7 @@ const AdvanceCalculator = () => {
             selectedValue={fromUnit}
             style={styles.picker}
             onValueChange={(itemValue) => setFromUnit(itemValue)}
+          
           >
             {units.map((unit) => (
               <Picker.Item key={unit} label={unit} value={unit} />
@@ -82,6 +83,7 @@ const AdvanceCalculator = () => {
       </View>
 
       <TextInput
+      className="input bg-gray-800 text-white"
         style={styles.input}
         value={amount}
         onChangeText={setAmount}
@@ -132,15 +134,17 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   picker: {
-    backgroundColor: '#fff',
-    borderRadius: 5,
+    backgroundColor: '#1f2937',
+    borderRadius: 8,
+    color: '#fff',
   },
   input: {
-    backgroundColor: '#fff',
+    backgroundColor: '#1f2937',
     borderRadius: 5,
     padding: 10,
     fontSize: 18,
     marginBottom: 20,
+    color: '#fff ',
   },
   result: {
     fontSize: 20,
@@ -167,13 +171,17 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   numberButton: {
-    backgroundColor: '#f8f8f8',
+    backgroundColor: '#0891b2',
+    color: '#fff',
   },
   functionButton: {
-    backgroundColor: '#e0e0e0',
+    backgroundColor: '#2563eb',
+    color: '#fff',
   },
   equalButton: {
     backgroundColor: '#4a90e2',
+    color: '#fff',
+
   },
   buttonText: {
     fontSize: 24,
