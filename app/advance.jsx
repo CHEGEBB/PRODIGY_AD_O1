@@ -44,7 +44,7 @@ const AdvanceCalculator = () => {
   };
 
   const renderButton = (text, onPress, style = {}) => (
-    <TouchableOpacity style={[styles.button, style]} onPress={onPress}>
+    <TouchableOpacity key={text} style={[styles.button, style]} onPress={onPress}>
       <Text style={styles.buttonText}>{text}</Text>
     </TouchableOpacity>
   );
@@ -60,7 +60,6 @@ const AdvanceCalculator = () => {
             selectedValue={fromUnit}
             style={styles.picker}
             onValueChange={(itemValue) => setFromUnit(itemValue)}
-          
           >
             {units.map((unit) => (
               <Picker.Item key={unit} label={unit} value={unit} />
@@ -83,12 +82,12 @@ const AdvanceCalculator = () => {
       </View>
 
       <TextInput
-      className="input bg-gray-800 text-white"
-        style={styles.input}
+        style={[styles.input, { backgroundColor: '#1f2937', color: '#fff' }]}
         value={amount}
         onChangeText={setAmount}
         keyboardType="numeric"
         placeholder="Enter amount"
+        placeholderTextColor="#9ca3af"
       />
 
       <Text style={styles.result}>Result: {result}</Text>
@@ -152,7 +151,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     marginBottom: 20,
     color: '#4a90e2',
-    backgroundColor:'#ccc',
+    backgroundColor:'#1f2937',
     padding: 10,
     borderRadius: 5,
   },
