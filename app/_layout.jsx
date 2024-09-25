@@ -27,7 +27,7 @@ const App = () => {
   return (
       <View style={styles.safeAreaView}>
         {isShowSplashScreen ? (
-          <SplashScreen />
+          <SplashScreen  />
         ) : (
           <Tabs
             screenOptions={{
@@ -36,14 +36,14 @@ const App = () => {
                 backgroundColor: '#1E1E1E',
                 borderTopWidth: 0,
               },
-              tabBarActiveTintColor: 'blue', // Active tab icon color
-              tabBarInactiveTintColor: 'gray', // Inactive tab icon color
+              tabBarActiveTintColor: 'blue', 
+              tabBarInactiveTintColor: 'gray', 
               tabBarLabelStyle: {
                 fontSize: 14, 
-                fontWeight: 'bold', // Tab label font weight
+                fontWeight: 'bold', 
               },
               tabBarIconStyle: {
-                marginTop: 5, // Adjust icon margin
+                marginTop: 5, 
               },
             }}
             tabBar={props=><TabBar{...props}/>}
